@@ -40,18 +40,19 @@ public class More_delicious_food {
     // Create a Deferred Register to hold Blocks which will all be registered under the "more_delicious_food" namespace
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     // Creates a new Block with the id "more_delicious_food:example_block", combining the namespace and path
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    public static final DeferredBlock<Block> MDF_BLOCK = BLOCKS.registerSimpleBlock("mdf_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
     // Create a Deferred Register to hold Items which will all be registered under the "more_delicious_food" namespace
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     // Creates a new BlockItem with the id "more_delicious_food:example_block", combining the namespace and path
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
+    public static final DeferredItem<BlockItem> MDF_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("mdf_block", MDF_BLOCK);
     // Creates a new food item with the id "more_delicious_food:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    public static final DeferredItem<Item> NEW_CHICKEN = ITEMS.registerSimpleItem("new_chicken", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "more_delicious_food" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     // Creates a creative tab with the id "more_delicious_food:example_tab" for the example item, that is placed after the combat tab
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.more_delicious_food")).withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
-        output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MDF_TAB = CREATIVE_MODE_TABS.register("mdf_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.more_delicious_food")).withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> MDF_BLOCK_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
+        output.accept(MDF_BLOCK_ITEM.get());
+        output.accept(NEW_CHICKEN.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
     }).build());
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -94,7 +95,7 @@ public class More_delicious_food {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(MDF_BLOCK_ITEM);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
