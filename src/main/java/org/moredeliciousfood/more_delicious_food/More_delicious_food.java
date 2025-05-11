@@ -46,7 +46,7 @@ public class More_delicious_food {
     // Creates a new BlockItem with the id "more_delicious_food:example_block", combining the namespace and path
     public static final DeferredItem<BlockItem> MDF_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("mdf_block", MDF_BLOCK);
     // Creates a new food item with the id "more_delicious_food:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> NEW_CHICKEN = ITEMS.registerSimpleItem("new_chicken", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    public static final DeferredItem<Item> NEW_CHICKEN = ITEMS.registerSimpleItem("new_chicken", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(6).saturationModifier(5f).build()));
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "more_delicious_food" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     // Creates a creative tab with the id "more_delicious_food:example_tab" for the example item, that is placed after the combat tab
