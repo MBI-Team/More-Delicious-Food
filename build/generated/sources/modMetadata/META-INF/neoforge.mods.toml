@@ -17,7 +17,7 @@ license = "MIT"
 # The modid of the mod
 modId = "more_delicious_food" #mandatory
 # The version number of the mod
-version = "1.0" #mandatory
+version = "1.0-neoforge-pre-1" #mandatory
 # A display name for the mod
 displayName = "More Delicious Food" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforge.net/docs/misc/updatechecker/
@@ -29,7 +29,7 @@ displayURL = "https://bot.n.cn/chat/e50fca6833a1473fa4a0a5717f9785b9" #optional
 # A text field displayed in the mod UI
 #credits="" #optional
 # A text field displayed in the mod UI
-authors = "danhuangsu, Kush_Shul" #optional
+authors = "danhuangsu" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description = '''More decorative blocks'''
