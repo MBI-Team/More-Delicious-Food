@@ -10,8 +10,8 @@ public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredItem<Item> NEW_CHICKEN = ITEMS.registerSimpleItem("new_chicken", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible()
-            .nutrition(6)
-            .saturationModifier(5f)
+            .nutrition(20)
+            .saturationModifier(100f)
             .build()
     ));
 }
